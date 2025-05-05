@@ -1,0 +1,16 @@
+---
+- name: Running Script
+  hosts: core
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: AssignLoop
+      ios_command:
+        commands:
+          - conf t
+          - int lo 200
+          - ip add 200.200.200.200 255.255.255.255
+          - end
+      tags:
+        - loop
+
