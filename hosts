@@ -1,9 +1,0 @@
-[core]
-10.11.1.4
-
-[core:vars]
-ansible_user=rivan
-ansible_password=C1sc0123
-ansible_connection=network_cli
-ansible_network_os=ios
-  
