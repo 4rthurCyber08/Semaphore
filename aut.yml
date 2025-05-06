@@ -1,13 +1,13 @@
 ---
 
-# HOSTNAME            =  #H0STN4ME#
-# SSID                =  #SS1D#
-# VLAN                =  #VL4N#
-# AUTHENTICATION      =  #4UTHENT1C4T1ON#
-# KEY-MANAGEMENT      =  #KEY_M4N#
-# WIFI-PASSWORD       =  #P4SSW0RD#
-# CHANNEL             =  #CH4NNEL#
-# ENCRYPTION          =  #ENCR_M0D#
+# HOSTNAME            =  AerinAP-11
+# SSID                =  11-AerinResortsWorld
+# VLAN                =  11
+# AUTHENTICATION      =  open
+# KEY-MANAGEMENT      =  wpa
+# WIFI-PASSWORD       =  C1sc0123
+# CHANNEL             =  5
+# ENCRYPTION          =  tkip
 
 - name: AutoWifi
   hosts: aut
@@ -18,12 +18,12 @@
       ios_command:
         commands:
           - conf t
-          - hostname #H0STN4ME#
-          - dot11 ssid #SS1D#
-          - "vlan #VL4N#"
-          - authentication #4UTHENT1C4T1ON#
-          - authentication key-management #KEY_M4N#
-          - wpa-psk ascii #P4SSW0RD#
+          - hostname AerinAP-11
+          - dot11 ssid 11-AerinResortsWorld
+          - "vlan 11"
+          - authentication open
+          - authentication key-management wpa
+          - wpa-psk ascii C1sc0123
           - guest-mode
           - default int dot11radio 0
           - default interface gigabitEthernet 0
@@ -37,10 +37,10 @@
           - conf t
           - int dot11radio 0
           - no shut
-          - channel #CH4NNEL#
-          - encryption mode ciphers #ENCR_M0D#
-          - "encryption vlan #VL4N# mode ciphers #ENCR_M0D#"
-          - ssid #SS1D#
+          - channel 5
+          - encryption mode ciphers tkip
+          - "encryption vlan 11 mode ciphers tkip"
+          - ssid 11-AerinResortsWorld
           - end
       tags:
         - deploy
@@ -49,8 +49,8 @@
       ios_command:
         commands:
           - conf t
-          - int dot11radio 0.#VL4N#
-          - "encapsulation dot1q #VL4N# native"
+          - int dot11radio 0.11
+          - "encapsulation dot1q 11 native"
           - bridge-group 1
           - end
       tags:
