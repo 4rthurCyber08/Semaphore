@@ -1,8 +1,8 @@
 [aut]
-10.11.10.3
+10.11.1.4
 
 [aut:vars]
 ansible_user=admin
-ansible_password=pass
+ansible_password=C1sc0123
 ansible_connection=network_cli
 ansible_network_os=ios
